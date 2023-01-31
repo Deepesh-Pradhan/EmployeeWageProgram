@@ -10,10 +10,10 @@ public class EmployeeWage {
         int attendance = ran.nextInt(2);
 
         if (attendance == 1) {
-            System.out.println("Employee is Present");
+            System.out.println(" Employee is Present ");
 
         } else {
-            System.out.println("Employee is Absent");
+            System.out.println(" Employee is Absent" );
         }
     }
 }
