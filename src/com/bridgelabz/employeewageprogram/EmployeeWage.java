@@ -3,40 +3,36 @@ package com.bridgelabz.employeewageprogram;
 import java.util.Random;
 
 public class EmployeeWage {
-    static int Wage_per_Hour = 20;
-    static int Full_Day_Hour = 8;
-    static int Part_Time_Hour = 4;
+    public static final int PER_HOUR_WAGE = 20;
+    public static final int FULL_TIME = 1;
+    public static final int PART_TIME = 2;
     static int Working_Day_per_Month = 20;
     static int Total_Working_Hour = 100;
 
-    public static void main(String[] args) {
+    public static void calculateEmployeeWage() {
         System.out.println("Welcome to Employee Wage Computation Program");
-        int totalWage = 0;
+        Random ran = new Random();
         int dayCount = 0;
-        int workingHours = 0;
-        while (dayCount <= Working_Day_per_Month && workingHours < Total_Working_Hour) {
-            Random ran = new Random();
-            int attendance = ran.nextInt(3);
-            int employeeWage = 0;
-            switch (attendance) {
-                case 1 -> {
-                    System.out.println("Employee is Present for Full time");
-                    employeeWage = Wage_per_Hour * Full_Day_Hour;
-                    workingHours += Full_Day_Hour;
-                }
-                case 2 -> {
-                    System.out.println("Employee is Present for Part time");
-                    employeeWage = Wage_per_Hour * Part_Time_Hour;
-                    workingHours += Part_Time_Hour;
-                }
-                default -> System.out.println("Employee is Absent");
-            }
-            totalWage += employeeWage;
-            System.out.println("Employee Wage for day " + dayCount + " is " + employeeWage);
-            System.out.println("  ");
+        int workingHours;
+        int totalEmployeeWorkHour = 0;
+        while (dayCount < Working_Day_per_Month && totalEmployeeWorkHour <= Total_Working_Hour) {
             dayCount++;
+            int attendance = ran.nextInt(3);
+            switch (attendance) {
+                case FULL_TIME -> workingHours = 8;
+                case PART_TIME -> workingHours = 4;
+                default -> workingHours = 0;
+            }
+            int wage = workingHours * PER_HOUR_WAGE;
+            System.out.println("Day " + dayCount + " work hour => " + workingHours + " and wage => " + wage);
+            totalEmployeeWorkHour += workingHours;
         }
-        System.out.println("Total Wage of Employee is " + totalWage);
-        System.out.println("Total Working Hours => " + workingHours);
+        int totalEmployeeWage = totalEmployeeWorkHour * PER_HOUR_WAGE;
+        System.out.println("Total Work Hour => " + totalEmployeeWorkHour);
+        System.out.println("Total Employee Wage => " + totalEmployeeWage);
+    }
+
+    public static void main(String[] args) {
+        calculateEmployeeWage();
     }
 }
