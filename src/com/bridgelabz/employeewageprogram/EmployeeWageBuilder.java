@@ -51,6 +51,6 @@ public class EmployeeWageBuilder {
         System.out.println("---------------------------------------------------");
         company_three.calculateEmployeeWage();
         System.out.println(company_three);
-        System.out.println( "---------------------------------------------------");
+        System.out.println("---------------------------------------------------");
     }
 }
