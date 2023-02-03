@@ -10,12 +10,14 @@ public class EmployeeWageBuilder {
     final int totalWorkingDaysPerMonth;
     final int totalWorkingHoursPerMonth;
     int totalEmployeeWage;
+
     public EmployeeWageBuilder(String companyName, int wagePerHour, int totalWorkingDaysPerMonth, int totalWorkingHoursPerMonth) {
         this.companyName = companyName;
         this.wagePerHour = wagePerHour;
         this.totalWorkingDaysPerMonth = totalWorkingDaysPerMonth;
         this.totalWorkingHoursPerMonth = totalWorkingHoursPerMonth;
     }
+
     public void calculateEmployeeWage() {
         int dayCount = 0;
         int workingHours;
@@ -35,14 +37,16 @@ public class EmployeeWageBuilder {
         }
         totalEmployeeWage = totalEmployeeWorkHour * wagePerHour;
     }
+
     @Override
     public String toString() {
-        return "Total Employee Wage for " + companyName+ " is => " + totalEmployeeWage;
+        return "Total Employee Wage for " + companyName + " is => " + totalEmployeeWage;
     }
+
     public static void main(String[] args) {
-        EmployeeWageBuilder company_one = new EmployeeWageBuilder("Company One",20,20,100);
-        EmployeeWageBuilder company_two = new EmployeeWageBuilder("Company Two",25,22,120);
-        EmployeeWageBuilder company_three = new EmployeeWageBuilder("Company Three",30,26,150);
+        EmployeeWageBuilder company_one = new EmployeeWageBuilder("Company One", 20, 20, 100);
+        EmployeeWageBuilder company_two = new EmployeeWageBuilder("Company Two", 25, 22, 120);
+        EmployeeWageBuilder company_three = new EmployeeWageBuilder("Company Three", 30, 26, 150);
         company_one.calculateEmployeeWage();
         System.out.println(company_one);
         System.out.println("---------------------------------------------------");
